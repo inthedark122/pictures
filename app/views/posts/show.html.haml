@@ -1,0 +1,28 @@
+-if user_signed_in? && (current_user.admin? || current_user.id == @post.user_id) 
+  %div#add-pict-click 
+    %span.border-radius Добавить фотографию
+  %div#add-pict{:class=>"center-align border-radius"}
+    = render "picts/form"
+  %div#add-pict-crop{:class=>"center-align border-radius"}  
+    = render "picts/form_crop"
+
+%p
+  %strong Title:
+  = @post.title 
+%p
+  %strong Text:
+  = raw(@post.text)
+
+= render "show_carusel", :post=>@post
+
+%h2 Comments
+%div#add_coment
+  - @post.comments.each do |comment|
+    %p
+      %strong Commenter:
+      = comment.commenter
+    %p
+      %strong Comment:
+      = comment.body
+%h2 Add a comment:
+= render "comments/form"  

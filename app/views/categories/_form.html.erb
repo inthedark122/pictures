@@ -1,0 +1,29 @@
+<%= form_for @cat  do |f| %>
+    <% if @cat.errors.any? %>
+      <div id="errorExplanation">
+        <h2><%= pluralize(@cat.errors.count, "error") %> prohibited this cat from being saved:</h2>
+        <ul>
+        <% @cat.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+        <%= f.label :Заголовок %><br />
+        <%= f.text_field :title %>
+    </p>
+    <p>
+        <%= f.label :Ссылка %> <br />
+        <%= f.text_area :name %>
+    </p>
+    <p>
+        <%= f.label :Текст %> <br />
+        <%= f.text_field :text %>
+    </p>
+    
+    <p>
+        <% f.submit %>
+    </p>
+    
+<% end %>

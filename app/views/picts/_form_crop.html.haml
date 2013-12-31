@@ -1,0 +1,21 @@
+= form_for([@post, @post.picts.new]) do |f|
+  %div
+    awd
+    %div#img-position
+  %p{style:"display:none"}
+    = f.label :adress
+    %br
+    = f.text_field :adress 
+  %p{style:"display:none"}
+    = f.label :text
+    %br
+    = f.text_field :text 
+  %div{style:"display:none"}
+    =text_field_tag "x1", id:"x1"
+    =text_field_tag "y1", id:"y1"
+    =text_field_tag "h", id:"h"
+    =text_field_tag "w", id:"w"
+    =text_field_tag "o_w", id:"o_w"
+    =text_field_tag "o_h", id:"o_h"
+  %p
+    = f.submit

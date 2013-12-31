@@ -1,0 +1,25 @@
+- unless @user.blank?
+  %div#user
+    %div.link_add_post
+      = link_to "Управления записями", "id#{current_user.id}/edit_post" if @user.id == current_user.id
+    
+    %div.user_photo
+    
+    %div.user_name
+      = current_user.name
+    
+    %div.clear
+    %div.show_image
+      Последнии 
+      - @user.posts.limit(5).each do |post|
+        %div.show_image_one
+          = image_tag "/images/picture/small/"+ post.picts.first.adress, :height=>'100'
+          
+    
+    -# unless @user.posts.blank?
+      - @user.posts.each do |pos|
+        %div
+          %div= pos.title
+          %div
+            - pos.picts.each do |pict|
+              =image_tag "/images/picture/small/"+ pict.adress, :width=>'200', :height=>'250'

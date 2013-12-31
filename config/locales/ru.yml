@@ -1,0 +1,58 @@
+# -*- encoding : utf-8 -*-
+
+ru:
+  devise:
+    sessions:
+      admin_user:
+        signed_in: "Успешно авторизирован"
+    failure:
+      admin_user:
+        unauthenticated: "Не авторизирован"
+  opts: "Опт"
+  date:
+    formats:
+      default: ""
+      long: "%d.%m"
+      short: ""
+    order:
+      - :year
+      - :month
+      - :day
+  time:
+    formats:
+      long: "%d.%m.%Y в %H:%M:%S"
+      default: ""
+      short: ""
+  helpers:
+    submit:
+      create: "Добавить %{model}"
+      update: "Обновить %{model}"
+  activerecord:
+    errors:
+      models:
+        categories:
+          attributes:
+            name:
+              blank: "Имя не заполнено"
+            adress:
+              blank: "Адрес не заполнен"
+    models:
+      categories: "категорию"
+    attributes:
+      pict:
+        adress: "Картинка"
+
+      categories:
+        adress: "URL адресс"
+        name: "Имя категории"
+      
+      user:
+        email: "E-mail адресс"
+        password: "Пароль"
+        password_confirmation: "Повторите пароль"
+        remember_me: "Запомнить меня"
+        
+
+  active_admin:
+    filters:
+      kod: "Искать по коду"

@@ -1,0 +1,32 @@
+<h1>Создание категории</h1>
+<%= form_for :cat, :url => { :action => :create } do |f| %>
+  <% if @cat.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@cat.errors.count, "error") %> prohibited
+        this cat from being saved:</h2>
+    <ul>
+    <% @cat.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+  
+  <p>
+    <%= f.label :Ссылка %> <br />
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.submit :сохранить %>
+  </p>
+<% end %>

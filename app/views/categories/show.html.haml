@@ -1,0 +1,32 @@
+%div#category_menu
+  %div#category_label
+    = @cat.title
+    <br />
+    <hr />
+    = @cat.text
+
+  %div#category_action
+    %span Play
+    %span Stop
+    %span Time
+  
+
+%div#view_array
+  %div#view_all{:style=>"width:#{@cat.posts.count*330}px"}
+    - @cat.posts.each do |post|
+      = render 'posts/one', :post=>post
+%div.clear
+
+%div#primary{:style=>"display:none"}
+  Добавление Поста: 
+  =form_for([@cat, @cat.posts.new]) do |f|
+    %p 
+      = f.label :title
+      %br
+      = f.text_field :title
+    %p
+      = f.label :"Текст"
+      %br
+      = f.text_area :text
+    %p
+      = f.submit

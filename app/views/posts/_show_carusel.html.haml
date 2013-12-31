@@ -1,0 +1,9 @@
+%div#show-carusel  
+  %div
+    =#show-carusel-visible
+    -post.picts.each do |pict|
+      - next if pict.adress.blank?
+      -if !current_user.blank? && (current_user.admin? || current_user.id == pict.post.user_id)
+        =link_to "Удалить", delete_pict_path(pict), method: :delete
+      =image_tag "/images/picture/big/#{pict.adress}", :width=>'400'
+      %br

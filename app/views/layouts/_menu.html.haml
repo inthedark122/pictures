@@ -1,0 +1,4 @@
+-Categories.all.each do |cat|
+  %div.menu_item
+    =link_to cat.name, {:controller=>"/categories", :action=>:show, :id=>cat.adress}
+

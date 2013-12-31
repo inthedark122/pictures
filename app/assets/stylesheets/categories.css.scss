@@ -1,0 +1,21 @@
+//----category-label------
+#category_menu {background-color: #919191; width:790px; height:125px; position:absolute;}
+#category_label {width:600px; margin:0px auto; text-align:center; border:2px solid #DAA520; border-top:none;}
+
+
+//----category action-----
+#category_action{ width:500px; margin:0px auto; border:2px solid #CD950C; border-top:none;
+  span{width:32%; text-align:center; display:inline-block;}
+}
+
+//----post_view-----------
+#view_array {width:100%; height:420px; overflow-y:hidden; overflow-x:scroll;  background-color:#CDCDB4; padding-top:125px; }
+#view_all {width:100%; background:#505050 url("/images/all/bg_cat.png") repeat-x; height:100%;}
+.view-post {width:270px; float:left; height:420px; margin:0px 30px;
+  .view-post-link {text-align:center; width:100%; margin-bottom: 58px; line-height:20px; 
+    a {color:#483C3C; text-decoration:none; font-size:20px;}
+    a:hover {color:#505050; text-decoration:underline;}
+  }
+  img {margin:0px 35px;}
+
+}
