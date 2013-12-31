@@ -18,3 +18,6 @@
 /public/fotoshop
 /public/picture/big
 /public/picture/small
+/Gemfile.lock
+/Rakefile
+/config/database.yml
