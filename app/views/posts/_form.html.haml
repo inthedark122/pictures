@@ -1,0 +1,62 @@
+= form_for([@categories, @categories.posts.build])  do |f|
+  - if @post.errors.any?
+    %div#errorExplanation
+      %h2
+        = pluralize(@post.errors.count, "error")
+        prohibited this post from being saved:
+      %ul
+        -@post.errors.full_messages.each do |msg|
+          %li= msg
+  .form-input
+    = f.label :categorie_id
+    %br
+    = f.collection_select :categorie_id, Categories.all, :id, :title, :prompt => "Please Select"
+    = f.select :subcategory_id, Subcategory.all.collect{|c| [c.title, c.id, {:cat=>c.categories.id}]}
+  .form-input
+    = f.label :title
+    %br
+    = f.text_field :title
+  
+
+  .form-input
+    =f.label :view
+    =f.text_field :view
+  
+  .form-input
+    =f.label  :genre
+    =f.text_field :genre
+    
+  .form-input
+    =f.label :series
+    =f.text_field :series
+    
+  .form-input
+    =f.label :technique
+    =f.text_field :technique
+  
+  .form-input
+    =f.label :size
+    =f.text_field :size
+  
+  .form-input
+    =f.label :time_create
+    =f.text_field :time_create
+    
+  .form-input
+    =f.label :price
+    =f.text_field :price
+    
+  .form-input
+    =f.label :price_type
+    =f.select :price_type, [['p.','1'], ['грн.','2']]
+    
+  .form-input
+    =f.label :pict
+    =f.file_field :pict  
+
+  .form-input
+    = f.label :text
+    = f.text_area :text  
+  
+  .form-input
+    = f.submit

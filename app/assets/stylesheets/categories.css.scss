@@ -12,10 +12,14 @@
 #view_array {width:100%; height:420px; overflow-y:hidden; overflow-x:scroll;  background-color:#CDCDB4; padding-top:125px; }
 #view_all {width:100%; background:#505050 url("/images/all/bg_cat.png") repeat-x; height:100%;}
 .view-post {width:270px; float:left; height:420px; margin:0px 30px;
-  .view-post-link {text-align:center; width:100%; margin-bottom: 58px; line-height:20px; 
+  .view-post-link {text-align:center; width:100%; margin: 15px 0px 43px 0px; line-height:20px; 
     a {color:#483C3C; text-decoration:none; font-size:20px;}
     a:hover {color:#505050; text-decoration:underline;}
   }
-  img {margin:0px 35px;}
+  .view-post-image{widht:200px; height:250px;
+    img {margin:0px 35px;}
+  }
+  .view-post-comment{text-align:center; width:100%; margin-top:40px;}
+  
 
 }

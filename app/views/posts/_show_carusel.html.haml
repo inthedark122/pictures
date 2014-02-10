@@ -1,9 +1,17 @@
 %div#show-carusel  
-  %div
-    =#show-carusel-visible
+  %div#show-carusel-all
+    - i = 0
     -post.picts.each do |pict|
       - next if pict.adress.blank?
-      -if !current_user.blank? && (current_user.admin? || current_user.id == pict.post.user_id)
-        =link_to "Удалить", delete_pict_path(pict), method: :delete
-      =image_tag "/images/picture/big/#{pict.adress}", :width=>'400'
-      %br
+      - if !current_user.blank? && (current_user.admin? || current_user.id == pict.post.user_id)
+        =#link_to "Удалить", delete_pict_path(pict), method: :delete
+      =image_tag "/images/picture/small/#{pict.adress}", :width=>'200', :class=>"image-show", :id=>"image_min_#{i}", :onclick=>"set_current(this)"
+      - i+=1
+
+%div#show_big.center-align
+  %img#file_tmp{:style=>"display:none"}
+  %div#close_link 
+  %div#prev_link Влево
+  %div#next_link Вправо
+  %img#set_image
+  

@@ -1,0 +1,18 @@
+= form_for @post, :url=>{:controller=>:posts, :action=>:create_pict} do |f|
+  %div
+    %div#img-position
+  %p{style:"display:none"}
+    = f.label :data
+    %br
+    = f.text_field :data 
+    
+  %div{style:"display:none"}
+    =text_field_tag "x1", id:"x1"
+    =text_field_tag "y1", id:"y1"
+    =text_field_tag "h", id:"h"
+    =text_field_tag "w", id:"w"
+    =text_field_tag "o_w", id:"o_w"
+    =text_field_tag "o_h", id:"o_h"
+    =text_field_tag "id", @post.id
+  %p
+    = f.submit

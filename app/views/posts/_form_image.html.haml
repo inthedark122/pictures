@@ -1,0 +1,7 @@
+= form_for(@post,:url=>"/post/save_tmp" ,  :enctype=>"multipart/form-data", :html=>{:target=>"upload_frame", :id=>"upload_form"}) do |f|
+  %p
+    = f.label :data
+    %br
+    = f.file_field :data 
+  %p
+    = f.submit

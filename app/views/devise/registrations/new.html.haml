@@ -1,8 +1,16 @@
 %h2 Sign up
 
-= form_for(resource, :as => resource_name, :url => user_registration_path(resource_name)) do |f|
-  = devise_error_messages!
-
+= form_for(@user, :url => user_create_path) do |f|
+  - unless flash.blank?
+    = flash[:error]
+  -unless @user.errors.blank?
+    - @user.errors.messages.each do |item,mes|
+      %div= mes[0]
+  %div
+    = f.label :name
+    %br
+    = f.text_field :name
+  
   %div
     = f.label :email 
     %br
@@ -13,12 +21,11 @@
     %br
     = f.password_field :password
 
-    %div
-      = f.label :password_confirmation
-      %br
-      = f.password_field :password_confirmation
+  %div
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation
 
     %div
       = f.submit "Зарегестрировать"
 
-= render "devise/shared/links"

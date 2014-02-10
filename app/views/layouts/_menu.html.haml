@@ -1,4 +1,8 @@
 -Categories.all.each do |cat|
-  %div.menu_item
+  %div.menu-item
     =link_to cat.name, {:controller=>"/categories", :action=>:show, :id=>cat.adress}
+    %div.submenu
+      - cat.subcategories.each do |sub|
+        %div.submenu_item
+          = link_to sub.title, {:controller=>"/subcategories", :action=>:show, :adress=>sub.adress, :cat=>sub.categories.adress}
 

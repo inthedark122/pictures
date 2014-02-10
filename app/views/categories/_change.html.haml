@@ -1,0 +1,9 @@
+= form_for(@post) do |f|
+  %p
+    = f.label :Category
+    = f.collection_select :categorie_id, Categories.all, :id, :title, :prompt => "Please Select"
+  %p
+    = f.label :SubCategorie
+    = f.select :subcategory_id, Subcategory.all.collect{|c| [c.title, c.id, {:cat=>c.categories.id}]}
+  %p
+    = f.submit

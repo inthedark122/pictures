@@ -2,9 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "jquery/jquery.Jcrop.min";
-#add-pict-click {text-align:right;  
-	span {display:inline-block; border:1px solid #505050; padding:3px; background-color:#61CB71; color:#505050; cursor:pointer;}
+#edit_post_click {text-align:center; float:right; width:30px; position:fixed; margin-left:770px; 
+	span {display:inline-block; border:1px solid #505050; padding:3px; background-color:#61CB71; color:#505050; cursor:pointer; width:22px;}
 	span:hover{color:black; background-color:#62B76F;}
+  #edit_post_menu { position:absolute; margin-left:-220px; width:220px; border:1px solid black; min-height:80px; display:none;
+  
+  }
 }
 #add-pict{width:500px; height:300px; margin:-150px 0px 0px -250px; display:none; text-align:center;}
 #add-pict-crop{width:500px; height:300px; margin:-150px 0px 0px -250px; display:none; text-align:center;
@@ -12,4 +15,21 @@
 }
 
 #show-carusel { width:700px; 
+  #show-carusel-all {cursor:pointer;}
+
+}
+
+#show_big { display:none;
+  #prev_link {position:fixed; top:50%; left:50px; color:white; cursor:pointer;}
+  #next_link {position:fixed; top:50%; right:50px; color:white; cursor:pointer;}
+  #close_link {position:fixed; top:10px; right:10px; width:24px; height:24px; background-image:url("/images/all/close.png"); cursor:pointer;}
+}
+
+// Form 
+#new_post {
+  .form-input { display:block; width:100%; text-align:center;
+    label {text-align:center; display:block; margin-top:15px; }
+    input [type="text"] {width:300px; }
+    textarea {width:700px; height:80px;}
+  }
 }

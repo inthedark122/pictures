@@ -1,10 +1,22 @@
 -if user_signed_in? && (current_user.admin? || current_user.id == @post.user_id) 
-  %div#add-pict-click 
-    %span.border-radius Добавить фотографию
-  %div#add-pict{:class=>"center-align border-radius"}
-    = render "picts/form"
+  %div#edit_post_click 
+    %div#edit_post_menu
+      %div 
+        %a{:href=>"#"} Редактировать изображения
+      %div 
+        = link_to "Удалить запись", post_path(@post), :method=>:delete
+    %span.border-radius#add_pict_click_link P
+    %span.border-radius#edit_cat_click_link C
+    %span.border-radius#show_edit_post_menu <<
+    
+  %div#add-pict.center-align.border-radius
+    =# render "picts/form"
+    = render "form_image"
+  %div#edit_cat.center-align.border-radius.hide
+    = render "categories/change"
   %div#add-pict-crop{:class=>"center-align border-radius"}  
-    = render "picts/form_crop"
+    =# render "picts/form_crop"
+    = render "form_crop"
 
 %p
   %strong Title:
@@ -13,16 +25,22 @@
   %strong Text:
   = raw(@post.text)
 
+%div
+  = image_tag "/images/poster/big/#{@post.pict}", :width=>"600px"
+    
+  
 = render "show_carusel", :post=>@post
 
-%h2 Comments
+%h2 Коментарии
 %div#add_coment
   - @post.comments.each do |comment|
+    -if !current_user.blank? && comment.user_id == current_user.id
+      = link_to "Удалить", delete_comment_path(comment), :method=>:delete
     %p
-      %strong Commenter:
-      = comment.commenter
+      %strong Пользователь:
+      = comment.user_name
     %p
-      %strong Comment:
-      = comment.body
-%h2 Add a comment:
+      %strong Сообщение:
+      = comment.message
+%h2 Добавить комментарий:
 = render "comments/form"  

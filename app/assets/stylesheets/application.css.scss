@@ -1,12 +1,24 @@
 //@import 'self'
 //@import 'aloha/css/aloha.css'
+//@import "font-awesome"
+//@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic); //font-family: 'Roboto', sans-serif;
+//@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic); //font-family: 'Ubuntu', sans-serif;
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=cyrillic); // font-family: 'PT Sans', sans-serif;
+@import "screen";
+@import "posts";
 
-html {background:silver url("/images/all/main_bg.png"); line-height:27px; height:100%;}
+html {
+  font-family: 'PT Sans', sans-serif;
+  background:silver url("/images/all/main_bg.png"); 
+  line-height:27px; 
+  height:100%;}
 body {margin:0 auto; width:1200px; line-height:20px; height:100%;}
 a {border:none; text-decoration:none;}
 
 #page {background-image:url("/images/all/bg.png"); height:100%;}
+#status {display:none; width:20px; height:20px; background-image:url("/images/all/progress.gif"); top:50%; left:50%; position:fixed; z-index:99;}
 .clear {clear:both;}
+.hide {display:none;}
 
 //-------top--------------
 #zagolovok {width:100%; height:280px; background-image:url("/images/all/title.png");}
@@ -20,8 +32,7 @@ a {border:none; text-decoration:none;}
 //-------left----------------
 #left {float:left; width:100px; min-height:100px;}
 //-------right---------------
-#right {float:right; width:300px; min-height:100px;}
-
+@import "right";
 //-------footer--------------
 #footer {width:100%; height:100px; background-image:url("/images/all/footer.png"); margin:0px;}
 .footer_line {background-repeat:repeat-x; background-image:url("/images/all/Vetka.png"); width:1100px; height:5px; background-position:bottom; padding:0px;}
@@ -34,9 +45,5 @@ a {border:none; text-decoration:none;}
 .border-radius{-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px;}
 
 //--------menu---------------
-#menu {width:790px; display:block; height:35px; background: url("/images/all/Vetka.png") repeat-x bottom; margin:0px; padding:0px; }
-#menu_all {position:absolute; top:195px; width:650px;}
-.menu_item a {float:left; width:125px; height:25px; text-align:center; display:block; padding:5px 0px 0px 0px; border-right:1px solid #505050; text-decoration:none; color:#000000;
-  &:hover {text-decoration:underline; color:#505050;}
-}
+@import "menu";
 

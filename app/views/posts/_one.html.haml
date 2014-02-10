@@ -1,14 +1,17 @@
 %div.view-post
   %div.view-post-link
     =link_to post.title, {:id=>post.id, :controller=>:posts, :action=>:show}
-  -if post.picts.count!=0
-    =link_to image_tag("/images/picture/small/"+post.picts.last.adress, :width=>'200', :height=>'250'), {:id=>post.id, :controller=>:posts, :action=>:show}
-  -else
-    %div{:style=>"width:200px; height:150px;"}
-      Не существует  
-  %p
+  %div.view-post-image
+    -if post.picts.count!=0
+      =link_to image_tag("/images/poster/small/"+post.pict.to_s, :width=>'200', :height=>'250'), {:id=>post.id, :controller=>:posts, :action=>:show}
+    -else
+      %div{:style=>"width:200px; height:150px;"}
+        Не существует  
+  %div.view-post-comment
     Кол зап. 
     = post.comments.count 
+  
+  
   %p
-    -if !current_user.blank? && (current_user.admin? || post.user_id == current_user.id ) 
+    -#if !current_user.blank? && (current_user.admin? || post.user_id == current_user.id ) 
       =link_to "Удалить", post_path(post), :method=>:delete
