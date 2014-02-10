@@ -16,6 +16,10 @@ gem 'mini_magick' ,'3.5.0'
 gem "jquery-ui-rails"
 gem 'therubyracer', :platforms => :ruby
 #gem "inherited_resources", '1.3.1'
+#--font----
+#gem 'font-awesome-less'
+#--mail----
+gem "mail"
 #----------
 
 
@@ -31,7 +35,7 @@ group :development do
   gem 'binding_of_caller'
 #  gem 'meta_request'
 #  gem 'quiet_assets'
-#  gem 'thin'
+  gem 'thin'
 end
 
 group :assets do
