@@ -16,6 +16,7 @@
 /log/*.log
 /tmp
 
+README.md
 /db/schema.rb
 /public/file_tmp
 /public/fotoshop
