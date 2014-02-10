@@ -1,0 +1,19 @@
+ru:
+  activerecord:
+    attributes:
+      post:
+        title: "Заголовок"
+        text: "Текст"
+        view: "Вид исскуства"
+        genre: "Жанр"
+        series: "Серия"
+        technique: "Техника"
+        size: "Размер"
+        time_create: "Врменя создания"
+        price: "Цена"
+        price_type: "Валюта"
+        pict: "Изображение"
+        categorie_id: "Категория"
+    models:
+      post: "Запись "    
+        

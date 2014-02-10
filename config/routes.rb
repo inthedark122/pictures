@@ -1,12 +1,28 @@
 Pictures::Application.routes.draw do
-  devise_for :users
-  ActiveAdmin.routes(self)
-	devise_for :admin_users, ActiveAdmin::Devise.config
-	post 'pict/save_tmp' => 'picts#save_tmp'
+  
+  root :to=>"site#index"
 	
-
-	root :to=>"site#index"
-	resources :categories do
+  #get
+  get "id:id" => "users#index"
+  get "id:id/edit_post" => "users#edit_post"
+  get "id:id/:category_id/new_post" => "users#new_post"
+  get "users/sign_up" => "users#new"
+  get "categories/:cat/:adress"=>"subcategories#show"
+  
+  #post
+  post "users/create" => "users#create", :as=>:user_create
+  post 'pict/save_tmp' => 'picts#save_tmp'
+  
+  
+  #put
+  put 'post/save_tmp' => "posts#save_tmp"
+  put "posts/create_pict" => "posts#create_pict"
+  
+  #delete
+  delete "picts/:id" => "picts#destroy", :as=>:delete_pict
+  delete "comments/:id" => "comments#destroy", :as=>:delete_comment
+  
+  resources :categories do
 		resources :posts do
 			resources :picts
 			resources :comments
@@ -16,13 +32,11 @@ Pictures::Application.routes.draw do
 		resources :picts
 		resources :comments
 	end
-
-  get "id:id" => "users#index"
-  delete "picts/:id" => "picts#destroy", :as=>:delete_pict
   
-  get "id:id/edit_post" => "users#edit_post"
-  get "id:id/:category_id/new_post" => "users#new_post"
-  
+  #devise
+  devise_for :users
+  ActiveAdmin.routes(self)
+	devise_for :admin_users, ActiveAdmin::Devise.config
   # mount Mercury::Engine => '/'
   # devise_for :main_users, :as=>:user
   # The priority is based upon order of creation:

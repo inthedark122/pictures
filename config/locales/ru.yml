@@ -36,8 +36,15 @@ ru:
               blank: "Имя не заполнено"
             adress:
               blank: "Адрес не заполнен"
+        user:
+          attributes:
+            password:
+              confirmation: "Пароли не совпадают"
+            email:
+              taken: "Такой електронный адрес уже занят"
     models:
       categories: "категорию"
+      comment: "сообщение"
     attributes:
       pict:
         adress: "Картинка"
@@ -51,6 +58,9 @@ ru:
         password: "Пароль"
         password_confirmation: "Повторите пароль"
         remember_me: "Запомнить меня"
+        name: "Имя"
+      comment:
+        message: "Сообщение"
         
 
   active_admin:

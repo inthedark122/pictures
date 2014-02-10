@@ -16,9 +16,11 @@
 /log/*.log
 /tmp
 
+/db/schema.rb
 /public/file_tmp
 /public/fotoshop
 /public/picture/big
 /public/picture/small
-/Gemfile.lock
+/public/images/*
+Gemfile.lock
 /Rakefile
