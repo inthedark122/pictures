@@ -1,3 +1,7 @@
+= form_tag("/post/save_tmp_image",  :enctype=>"multipart/form-data", :target=>"upload_frame", :id=>"upload_form") do
+  = file_field_tag :data
+  = submit_tag
+
 = form_for([@categories, @categories.posts.build])  do |f|
   - if @post.errors.any?
     %div#errorExplanation
@@ -7,6 +11,10 @@
       %ul
         -@post.errors.full_messages.each do |msg|
           %li= msg
+  
+  %div{:style=>"float:left; margin-left:30px; width:200px; height:250px;" }
+    =f.file_field :pict, :style=>"width:200px; height:250px; position:absolute; opacity:0;" 
+    %div#current_image{:style=>"width:200px; height:250px; background-color:grey;"}
   .form-input
     = f.label :categorie_id
     %br
@@ -49,10 +57,7 @@
   .form-input
     =f.label :price_type
     =f.select :price_type, [['p.','1'], ['грн.','2']]
-    
-  .form-input
-    =f.label :pict
-    =f.file_field :pict  
+   
 
   .form-input
     = f.label :text

@@ -6,4 +6,7 @@
         =link_to "Создать", "/id#{current_user.id}/#{cat.id}/new_post"
       - cat.posts.where(:user_id=>current_user.id).each do |post|
         = link_to "/posts/#{post.id}" do 
-          = image_tag"/images/picture/small/"+ post.picts.first.adress, :width=>'200', :height=>'250'
+          - if post.picts.blank?
+            = image_tag "" , :width=>'200', :height=>'250'
+          - else
+            = image_tag "/images/picture/small/#{post.picts.first.adress}" , :width=>'200', :height=>'250'

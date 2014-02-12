@@ -12,7 +12,7 @@ Pictures::Application.routes.draw do
   #post
   post "users/create" => "users#create", :as=>:user_create
   post 'pict/save_tmp' => 'picts#save_tmp'
-  
+  post 'post/save_tmp_image' => "picts#save_tmp_image"
   
   #put
   put 'post/save_tmp' => "posts#save_tmp"

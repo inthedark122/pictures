@@ -80,6 +80,20 @@ class PictsController < ApplicationController
     end
   end
   
+  def save_tmp_image
+    if uploaded_io = params[:data]
+      FileUtils.mkdir("#{Rails.root.to_s}/public/file_tmp") unless File.directory?("#{Rails.root.to_s}/public/file_tmp")
+      tmp = uploaded_io.tempfile
+      file_name = rename_file(uploaded_io)
+      file = File.join("public/file_tmp", file_name)
+      FileUtils.cp(tmp.path,file)
+      File.chmod 0666, file
+      render text: "<script>top.result_save_tmp_image('ok', '#{file_name}')</script>"
+    else
+      render :js => {:status=>:error}
+    end
+  end 
+  
   #private
   
   
