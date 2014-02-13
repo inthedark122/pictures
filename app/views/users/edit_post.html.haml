@@ -1,12 +1,12 @@
 - unless current_user.blank?
+  =link_to "Создать", "/id#{current_user.id}/new_post"
   %div.view_posts_all
     - Categories.all.each do |cat|
       %div.categories_name= cat.name
       %div.link_crete_post
-        =link_to "Создать", "/id#{current_user.id}/#{cat.id}/new_post"
       - cat.posts.where(:user_id=>current_user.id).each do |post|
         = link_to "/posts/#{post.id}" do 
-          - if post.picts.blank?
+          - if post.pict.blank?
             = image_tag "" , :width=>'200', :height=>'250'
           - else
-            = image_tag "/images/picture/small/#{post.picts.first.adress}" , :width=>'200', :height=>'250'
+            = image_tag "/images/poster/small/#{post.pict}" , :width=>'200', :height=>'250'

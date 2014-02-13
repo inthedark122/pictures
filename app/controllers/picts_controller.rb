@@ -61,7 +61,7 @@ class PictsController < ApplicationController
       file = File.join("public/file_tmp", file_name)
       FileUtils.cp(tmp.path,file)
       File.chmod 0666, file
-      render text: "<script>top.result_save_tmp('ok', '#{file_name}')</script>"
+      render text: "<script>top.result_save_pict_tmp_image_win('ok', '#{file_name}')</script>"
     else
       render :js => {:status=>:error}
     end

@@ -33,8 +33,8 @@ class UsersController < ApplicationController
   end
   
   def new_post
-    @categories = Categories.find_by_id(params[:category_id])
-    @post = Categories.find_by_id(params[:category_id]).posts.new
+    #@categories = Categories.find_by_id(params[:category_id])
+    @post = Post.new #Categories.find_by_id(params[:category_id]).posts.new
   end
   
   def send_mail(to, subject, body)
