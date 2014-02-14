@@ -1,8 +1,8 @@
-= form_tag("/post/save_tmp_image",  :enctype=>"multipart/form-data", :target=>"upload_frame", :id=>"upload_form") do
-  = file_field_tag :data
+= form_tag("/post/save_tmp_image",  :enctype=>"multipart/form-data", :target=>"upload_frame", :id=>"upload_form", :style=>"display:none;") do
+  = file_field_tag :data, :id=>"post_pict_data"
   = submit_tag
 
-= form_for([@categories, @categories.posts.build])  do |f|
+= form_for(@post)  do |f|
   - if @post.errors.any?
     %div#errorExplanation
       %h2
@@ -13,8 +13,17 @@
           %li= msg
   
   %div{:style=>"float:left; margin-left:30px; width:200px; height:250px;" }
-    =f.file_field :pict, :style=>"width:200px; height:250px; position:absolute; opacity:0;" 
+    %div#post_pict_button{:style=>"width:200px; height:250px; position:absolute; opacity:0;"}
     %div#current_image{:style=>"width:200px; height:250px; background-color:grey;"}
+    %div{:style=>"display:none;"}
+      =f.text_field :pict
+      =text_field_tag "x1", id:"x1"
+      =text_field_tag "y1", id:"y1"
+      =text_field_tag "h", id:"h"
+      =text_field_tag "w", id:"w"
+      =text_field_tag "o_w", id:"o_w"
+      =text_field_tag "o_h", id:"o_h"
+      
   .form-input
     = f.label :categorie_id
     %br

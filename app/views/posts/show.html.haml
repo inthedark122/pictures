@@ -3,6 +3,8 @@
     %div#edit_post_menu
       %div 
         %a{:href=>"#"} Редактировать изображения
+      %div#add_pict_link
+        %a{:href=>"#"} Добавить изображение
       %div 
         = link_to "Удалить запись", post_path(@post), :method=>:delete
     %span.border-radius#add_pict_click_link P
@@ -10,13 +12,15 @@
     %span.border-radius#show_edit_post_menu <<
     
   %div#add-pict.center-align.border-radius
-    =# render "picts/form"
     = render "form_image"
+  %div#add_pict_image.center-align.border-radius{:style=>"display:none;"}
+    = render "picts/form"
   %div#edit_cat.center-align.border-radius.hide
     = render "categories/change"
   %div#add-pict-crop{:class=>"center-align border-radius"}  
-    =# render "picts/form_crop"
     = render "form_crop"
+  %div#add_pict_crop_image.center-align.border-radius{:style=>"display:none;"} 
+    = render "picts/form_crop"
 
 %p
   %strong Title:

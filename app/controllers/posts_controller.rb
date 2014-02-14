@@ -8,17 +8,20 @@ class PostsController < ApplicationController
 		@post = Post.new(params[:post])
 		@post[:user_id] = current_user.id
 		@post[:categorie_id] = params[:category_id]
-		uploaded_io = params[:post][:pict]
-		tmp = uploaded_io.tempfile
-    file_name = rename_file(uploaded_io)
-    file = File.join("public/images/poster/big/", file_name)
-    create_dir()
-    FileUtils.cp(tmp.path,file)
+    file_name = params[:post][:pict] 
+    file = File.join("#{Rails.root}/public/images/poster/big/", file_name)
+    tmp_file_path = File.join("#{Rails.root}/public/file_tmp", file_name)
+    FileUtils.cp(tmp_file_path, file)
     File.chmod 0666, file
     image = MiniMagick::Image.open(file)
-    image.resize "200x250"
-    image.write "#{Rails.root}/public/images/poster/small/#{file_name}"
-    @post[:pict] = file_name
+    loc = resize_loc(image, params)
+    unless loc.blank?
+      image.crop "#{loc[:w]}x#{loc[:h]}+#{loc[:x1]}+#{loc[:y1]}"
+      image.resize "200x250"
+      image.write "#{Rails.root}/public/images/poster/small/#{file_name}"
+    end
+    File.delete(tmp_file_path) unless File.file?(tmp_file_path)
+    #@post[:pict] = file_name
 		if @post.save
 			redirect_to @post
 		else

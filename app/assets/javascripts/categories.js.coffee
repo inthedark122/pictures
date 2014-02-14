@@ -23,7 +23,6 @@ $(document).ready ->
  
 
 next_main_div = ->
-  
   if (array_div_i <= array_div.length)
     div = array_div[array_div_i]
     setTimeout (->

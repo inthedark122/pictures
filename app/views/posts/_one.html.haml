@@ -2,7 +2,7 @@
   %div.view-post-link
     =link_to post.title, {:id=>post.id, :controller=>:posts, :action=>:show}
   %div.view-post-image
-    -if post.picts.count!=0
+    -unless post.pict.blank?
       =link_to image_tag("/images/poster/small/"+post.pict.to_s, :width=>'200', :height=>'250'), {:id=>post.id, :controller=>:posts, :action=>:show}
     -else
       %div{:style=>"width:200px; height:150px;"}

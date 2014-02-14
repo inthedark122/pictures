@@ -18,10 +18,10 @@
 
 README.md
 /db/schema.rb
-/public/file_tmp
+/public/file_tmp/*
 /public/fotoshop
-/public/picture/big
-/public/picture/small
+/public/picture/big/*
+/public/picture/small/*
 /public/images/*
 Gemfile.lock
 /Rakefile

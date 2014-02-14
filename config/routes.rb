@@ -5,7 +5,7 @@ Pictures::Application.routes.draw do
   #get
   get "id:id" => "users#index"
   get "id:id/edit_post" => "users#edit_post"
-  get "id:id/:category_id/new_post" => "users#new_post"
+  get "id:id/new_post" => "users#new_post"
   get "users/sign_up" => "users#new"
   get "categories/:cat/:adress"=>"subcategories#show"
   
