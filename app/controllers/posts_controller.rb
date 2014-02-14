@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 		tmp = uploaded_io.tempfile
     file_name = rename_file(uploaded_io)
     file = File.join("public/images/poster/big/", file_name)
+    create_dir()
     FileUtils.cp(tmp.path,file)
     File.chmod 0666, file
     image = MiniMagick::Image.open(file)

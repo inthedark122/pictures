@@ -22,4 +22,10 @@ class ApplicationController < ActionController::Base
     loc 
   end
 
+  def create_dir()
+    FileUtils.mkdir("#{Rails.root.to_s}/public/file_tmp") unless File.directory?("#{Rails.root.to_s}/public/file_tmp")
+    FileUtils.mkdir("#{Rails.root.to_s}/public/images/poster") unless File.directory?("#{Rails.root.to_s}/public/images/poster")
+    FileUtils.mkdir("#{Rails.root.to_s}/public/images/poster/big") unless File.directory?("#{Rails.root.to_s}/public/images/poster/big")
+    FileUtils.mkdir("#{Rails.root.to_s}/public/images/poster/small") unless File.directory?("#{Rails.root.to_s}/public/images/poster/small")
+  end
 end
