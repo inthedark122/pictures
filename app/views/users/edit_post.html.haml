@@ -1,5 +1,5 @@
 - unless current_user.blank?
-  =link_to "Создать", "/id#{current_user.id}/new_post"
+  =link_to "Создать", "/posts/new"
   %div.view_posts_all
     - Categories.all.each do |cat|
       %div.categories_name= cat.name

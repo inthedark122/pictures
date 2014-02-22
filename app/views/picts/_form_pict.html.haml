@@ -1,0 +1,3 @@
+= form_tag("/pict/save_tmp_image",  :enctype=>"multipart/form-data", :target=>"upload_frame", :id=>"upload_form") do
+  = file_field_tag :data, :id=>"post_pict_data"
+  = submit_tag

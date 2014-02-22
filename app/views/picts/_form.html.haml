@@ -1,4 +1,4 @@
-= form_for([@post, @post.picts.new],:url=>"/pict/save_tmp" ,  :enctype=>"multipart/form-data", :html=>{:target=>"upload_frame", :id=>"upload_form"}) do |f|
+= form_for([@post, @post.picts.new],:url=>"/pict/save_tmp_image" ,  :enctype=>"multipart/form-data", :html=>{:target=>"upload_frame", :id=>"upload_form"}) do |f|
   %p
     = f.label :adress
     %br

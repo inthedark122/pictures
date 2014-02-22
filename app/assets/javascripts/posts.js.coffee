@@ -2,18 +2,23 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 #= require "jquery/jquery.Jcrop.min.js"
+#= require "jquery/jquery.ui.datepicker.js"
+#= require "jquery/jquery.ui.datepicker-ru.js"
+#= require "jquery/jquery.ui.core.js"
 loc = undefined 
 id = 1
-$(window).ready ->
+$(document).ready ->
   $(this).keydown (e) ->
     if e.which is 27
       $("#shadow").hide()
-      $("#add-pict").hide()
-      $("#add-pict-crop").hide()
       $("#show_big").hide()
       $("#edit_cat").hide()
+  $("#post_time_create").datepicker
+    autoSize: true,
+    #beforeShowDay: $.datepicker.noWeekends
+  
+  $("#edit_cat_click_link").click(-> $("#shadow").show(); $("#edit_cat").show();)
       
-    
   $("#prev_link").click( -> prev_image())
   $("#next_link").click( -> next_image())
   $("#close_link").click(-> close_image())
@@ -25,15 +30,7 @@ $(window).ready ->
   
   $("#show_edit_post_menu").click(-> show_edit_post_menu())
   
-  $("#add_pict_link").click ->
-    $("#shadow").show()
-    $("#add_pict_image").show()
   
-  $("#add_pict_click_link").click ->
-    $("#shadow").show()
-    $("#add-pict").show()
-  
-  $("#edit_cat_click_link").click(->$("#shadow").show(); $("#edit_cat").show(); )
 
   $("a[data-remote]").on "ajax:success", (e, data, status, xhr) ->
     alert "The post was deleted."

@@ -1,15 +1,12 @@
-//@import 'self'
-//@import 'aloha/css/aloha.css'
-//@import "font-awesome"
-//@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic); //font-family: 'Roboto', sans-serif;
-//@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic); //font-family: 'Ubuntu', sans-serif;
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=cyrillic); // font-family: 'PT Sans', sans-serif;
-@import "screen";
-@import "posts";
 
+@import "jquery/jquery.ui.datepicker.css";
+@import "jquery/jquery.ui.theme.css";
+@import "jquery/jquery-ui.css";
 html {
   font-family: 'PT Sans', sans-serif;
-  background:silver url("/images/all/main_bg.png"); 
+  //background:silver url("/images/all/main_bg.png"); 
+  background-color: #505060;
   line-height:27px; 
   height:100%;}
 body {margin:0 auto; width:1200px; line-height:20px; height:100%;}
@@ -23,6 +20,7 @@ a {border:none; text-decoration:none;}
 //-------top--------------
 #zagolovok {width:100%; height:280px; background-image:url("/images/all/title.png");}
 .content_line {background-repeat:repeat-x; background-image:url("/images/all/Vetka.png"); width:1100px; height:5px; background-position:bottom;}
+#top_title{text-align:center; width:200px; margin-left:400px; height:40px; position:absolute; padding-top:20px; border:1px solid black; top:0px;}
 
 //-------content-------------
 #content {width:1200px; margin:0px; padding:0px; background:#FFFFCC url("/images/all/bg_right.png") repeat-y; }

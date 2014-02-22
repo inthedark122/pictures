@@ -1,11 +1,11 @@
 = form_for([@post, @post.picts.new]) do |f|
   %div
     awd
-    %div#img_position_pict
+    %div.current_image
   %p{style:"display:none"}
     = f.label :adress
     %br
-    = f.text_field :adress 
+    = f.text_field :adress, :class=>"pict_name"
   %p{style:"display:none"}
     = f.label :text
     %br

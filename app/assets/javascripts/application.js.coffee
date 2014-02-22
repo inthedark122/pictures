@@ -16,7 +16,6 @@ $(document).ready ->
 #------select sub categories-------
 select_subcategory = () ->
   id = $("#post_categorie_id :selected").val()
-  console.log(id)
   $("#post_subcategory_id option").each (i,el) ->
     if ($(el).attr("cat") == id)
       $(el).css("display","block")

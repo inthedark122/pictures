@@ -1,3 +1,9 @@
 #right {float:right; width:300px; min-height:100px;}
 
-#login {width:200px; margin:20px 25px; border:1px solid black; padding: 10px 25px;}
+#login {
+  width:200px; 
+  margin:20px 25px; 
+  border:1px solid black; 
+  padding: 10px 25px;
+  //transform: matrix(1, -0.125, 0, 1, 0, 0);
+}

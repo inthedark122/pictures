@@ -7,4 +7,9 @@ module ApplicationHelper
       return "/images/picture/small/#{pict.adress}"
     end
   end
+
+  def post_cat_adress(post)
+    return " " if post.blank? || post.categorie.blank? || post.categorie.adress.blank?
+    post.categorie.adress
+  end
 end

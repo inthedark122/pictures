@@ -1,50 +1,57 @@
 -if user_signed_in? && (current_user.admin? || current_user.id == @post.user_id) 
   %div#edit_post_click 
     %div#edit_post_menu
-      %div 
-        %a{:href=>"#"} Редактировать изображения
       %div#add_pict_link
         %a{:href=>"#"} Добавить изображение
-      %div 
-        = link_to "Удалить запись", post_path(@post), :method=>:delete
+      %div= link_to "Обновить", edit_post_path(@post)
+      %div= link_to "Удалить запись", post_path(@post), :method=>:delete   
     %span.border-radius#add_pict_click_link P
     %span.border-radius#edit_cat_click_link C
     %span.border-radius#show_edit_post_menu <<
     
-  %div#add-pict.center-align.border-radius
-    = render "form_image"
   %div#add_pict_image.center-align.border-radius{:style=>"display:none;"}
-    = render "picts/form"
-  %div#edit_cat.center-align.border-radius.hide
-    = render "categories/change"
-  %div#add-pict-crop{:class=>"center-align border-radius"}  
-    = render "form_crop"
+    = render "picts/form_pict"
+
+  %div#add-pict-crop.center-align.border-radius
+    = render "posts/form_crop"
   %div#add_pict_crop_image.center-align.border-radius{:style=>"display:none;"} 
     = render "picts/form_crop"
+  
+  %div#edit_cat.center-align.border-radius.hide
+    = render "categories/change"
 
-%p
-  %strong Title:
-  = @post.title 
-%p
-  %strong Text:
-  = raw(@post.text)
+%div#post
+  %div#post_title= @post.title 
 
-%div
-  = image_tag "/images/poster/big/#{@post.pict}", :width=>"600px"
-    
+  %div#post_image= image_tag "/images/poster/big/#{@post.pict}", :width=>"600px"
+  
+  %table
+    %tr
+      %th{:style=>"width:200px;"}
+      %th{:style=>"width:200px;"}
+    %tr.blue
+      %td#post_view_label.label Вид искуства:
+      %td#post_view.value=@post.view 
+    %tr
+      %td#post_genre_label.label Жанр:
+      %td#post_ganre.value= @post.genre
+    %tr
+      %td.label Техника
+      %td.value= @post.technique
+    %tr
+      %td.label Размер
+      %td.value= "#{@post.size_h}см x #{@post.size_w}см"
+    %tr
   
 = render "show_carusel", :post=>@post
 
-%h2 Коментарии
-%div#add_coment
-  - @post.comments.each do |comment|
-    -if !current_user.blank? && comment.user_id == current_user.id
-      = link_to "Удалить", delete_comment_path(comment), :method=>:delete
-    %p
-      %strong Пользователь:
-      = comment.user_name
-    %p
-      %strong Сообщение:
-      = comment.message
+%div{:style=>"margin:30px;"}
+  %h2{:style=>"text-align:center; text-decoration:underline;"} Коментарии
+  %div#add_coment
+    - @post.comments.each do |comment|
+      %div= comment.message
+      %div{:style=>"text-align:right;"}= "прокоментировал #{comment.user_name} в #{comment.created_at.strftime('%Y.%d.%m:%H.%M')}"
+      -if !current_user.blank? && comment.user_id == current_user.id
+        = link_to "Удалить", delete_comment_path(comment), :method=>:delete
 %h2 Добавить комментарий:
 = render "comments/form"  

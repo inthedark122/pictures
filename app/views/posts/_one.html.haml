@@ -1,9 +1,9 @@
 %div.view-post
   %div.view-post-link
-    =link_to post.title, {:id=>post.id, :controller=>:posts, :action=>:show}
+    =link_to post.title, {:id=>post.id, :controller=>:posts, :action=>:show, :cat=>post_cat_adress(post)}
   %div.view-post-image
     -unless post.pict.blank?
-      =link_to image_tag("/images/poster/small/"+post.pict.to_s, :width=>'200', :height=>'250'), {:id=>post.id, :controller=>:posts, :action=>:show}
+      =link_to image_tag("/images/poster/small/"+post.pict.to_s, :width=>'200', :height=>'250'), {:id=>post.id, :controller=>:posts, :action=>:show, :cat=>post_cat_adress(post)}
     -else
       %div{:style=>"width:200px; height:150px;"}
         Не существует  

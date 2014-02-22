@@ -1,10 +1,10 @@
 %div#category_menu
   %div#category_label
-    = @cat.title
-    <br />
-    <hr />
-    = @cat.text
-    %br
+    %div#category_title
+      = @cat.title
+    %div#categoru_text
+      = @cat.text
+    
 
   %div#category_action
     %span#play Play

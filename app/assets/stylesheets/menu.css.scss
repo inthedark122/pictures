@@ -1,11 +1,15 @@
 #menu {
+  position:absolute;
+  top:243px;
   width:800px; 
   display:block; 
-  height:35px; 
-  margin:0px; 
+  height:37px; 
+  margin:0px;
+  margin-left:100px; 
   padding:0px; 
-  border-top:2px solid black;
-  border-bottom:2px solid black;}
+  //border-top:1px solid black;
+  //border-bottom:1px solid black;
+  }
   
 #menu_all {
   position:absolute; 
@@ -13,16 +17,21 @@
   width:650px;}
 
 .menu-item {
+  border-right:1px solid #505050;
+  border-left:1px solid #505050;
+  border-top:1px solid #505050;
+  border-bottom: 1px solid #505050;
+  border-radius: 15px 15px 0px 0px;
   float:left; 
-  width:125px; 
-  height:35px; 
+  width:125px;
+  margin-top:5px; 
+  height:30px; 
   text-align:center; 
-  display:block; 
-  border-right:1px solid #505050; 
+  display:block;  
   a {
     display:block; 
     padding:5px 0px 5px 0px; 
-    height:25px;
+    height:20px;
     text-decoration:none;
     color:#000000;
   }
@@ -30,13 +39,29 @@
     text-decoration:underline; 
     color:#505050;
   }
+  &:hover {
+    background-color:#66cccc;
+    text-decoration:underline; 
+    color:#505050;
+  }
+}
+.menu-select {
+  margin-top:0px;
+  height:35px;
+  background-color: #99cc99;
+  a {
+    height:25px;
+  }
 }
 
 .submenu {
   display:none;
   position:absolute;
   z-index:99;
-  width:103px;
+  width:105px;
+  margin-left:-1px;
+  background-color:#cccccc;
   padding:10px;
   border:1px solid black;
+  border-top:none;
 }

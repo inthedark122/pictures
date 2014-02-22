@@ -1,10 +1,10 @@
 = form_for @post, :url=>{:controller=>:posts, :action=>:create_pict} do |f|
   %div
-    %div#img-position
+    %div.current_image
   %p{style:"display:none"}
     = f.label :data
     %br
-    = f.text_field :data 
+    = f.text_field :data, :class=>"pict_name"
     
   %div{style:"display:none"}
     =text_field_tag "x1", id:"x1"

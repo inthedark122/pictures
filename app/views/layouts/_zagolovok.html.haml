@@ -1,3 +1,18 @@
 %div#zagolovok
-	%div#top-content
-
+  %a#top_title{:href=>"/"} Картинная галерея
+  %div#top-content
+    %div{:style=>"height:200px; margin-top:50px; margin-left:150px; float:left;"}
+      = image_tag "/images/poster/small/#{Post.all.first.pict}", :height => "100px;", :style=>"transform: matrix(1, 0.35, -0.35, 1, 0, 0);"
+    %span{:style=>"height:100px; margin-top:100px; margin-left:80px; float:left;"}
+      = image_tag "/images/poster/small/#{Post.all[1].pict}", :height => "100px;", :style=>"transform: matrix(1, 0.3, -0.3, 1, 0, 0);"
+    
+    %span{:style=>"height:100px; margin-top:125px; margin-left:80px; float:left;"}
+      = image_tag "/images/poster/small/#{Post.all[2].pict}", :height => "100px;", :style=>"transform: matrix(1, 0, 0, 1, 0, 0);"
+    
+    %span{:style=>"height:100px; margin-top:100px; margin-left:80px; float:left;"}
+      = image_tag "/images/poster/small/#{Post.all[2].pict}", :height => "100px;", :style=>"transform: matrix(1, -0.3, 0.3, 1, 0, 0);"
+    %span{:style=>"height:100px; margin-top:50px; margin-left:80px; float:left;"}
+      = image_tag "/images/poster/small/#{Post.all[2].pict}", :height => "100px;", :style=>"transform: matrix(1, -0.35, 0.35, 1, 0, 0);"
+  
+  %div#menu
+    =render 'layouts/menu' 

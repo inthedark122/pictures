@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ru:
   activerecord:
     attributes:
@@ -8,7 +9,7 @@ ru:
         genre: "Жанр"
         series: "Серия"
         technique: "Техника"
-        size: "Размер"
+        size: "Размер(ширина:высота)"
         time_create: "Врменя создания"
         price: "Цена"
         price_type: "Валюта"
@@ -16,4 +17,3 @@ ru:
         categorie_id: "Категория"
     models:
       post: "Запись "    
-        

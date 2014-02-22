@@ -1,11 +1,18 @@
 //----category-label------
-#category_menu {background-color: #919191; width:790px; height:125px; position:absolute;}
-#category_label {width:600px; margin:0px auto; text-align:center; border:2px solid #DAA520; border-top:none;}
+#category_menu {background-color: #919191; width:800px; height:125px; position:absolute;}
+#category_label {width:600px; margin:0px auto; text-align:center; border:2px solid #DAA520; margin-top:10px;
+  #category_title {border-bottom: 1px solid #DAA520; padding: 3px 0px; }
+  #categoru_text {padding: 3px 0px;}
+}
 
 
 //----category action-----
 #category_action{ width:500px; margin:0px auto; border:2px solid #CD950C; border-top:none;
   span{width:32%; text-align:center; display:inline-block;}
+  #play {cursor:pointer;}
+  #play:hover {text-decoration:underline;}
+  #stop {cursor:pointer;}
+  #stop:hover {text-decoration:underline;}
 }
 
 //----post_view-----------

@@ -1,4 +1,4 @@
-= form_tag("/post/save_tmp_image",  :enctype=>"multipart/form-data", :target=>"upload_frame", :id=>"upload_form", :style=>"display:none;") do
+= form_tag("/pict/save_tmp_image",  :enctype=>"multipart/form-data", :target=>"upload_frame", :id=>"upload_form", :style=>"display:none;") do
   = file_field_tag :data, :id=>"post_pict_data"
   = submit_tag
 
@@ -14,9 +14,9 @@
   
   %div{:style=>"float:left; margin-left:30px; width:200px; height:250px;" }
     %div#post_pict_button{:style=>"width:200px; height:250px; position:absolute; opacity:0;"}
-    %div#current_image{:style=>"width:200px; height:250px; background-color:grey;"}
+    %div.current_image{:style=>"width:200px; height:250px; background-color:grey;"}
     %div{:style=>"display:none;"}
-      =f.text_field :pict
+      =f.text_field :pict, :class=>"pict_name"
       =text_field_tag "x1", id:"x1"
       =text_field_tag "y1", id:"y1"
       =text_field_tag "h", id:"h"
@@ -27,7 +27,7 @@
   .form-input
     = f.label :categorie_id
     %br
-    = f.collection_select :categorie_id, Categories.all, :id, :title, :prompt => "Please Select"
+    = f.collection_select :categorie_id, Categories.all, :id, :title
     = f.select :subcategory_id, Subcategory.all.collect{|c| [c.title, c.id, {:cat=>c.categories.id}]}
   .form-input
     = f.label :title
@@ -53,7 +53,9 @@
   
   .form-input
     =f.label :size
-    =f.text_field :size
+    =f.text_field :size_w, :style=>"width:70px;"
+    x
+    =f.text_field :size_h, :style=>"width:70px;"
   
   .form-input
     =f.label :time_create

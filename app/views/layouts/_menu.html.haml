@@ -1,6 +1,6 @@
 -Categories.all.each do |cat|
-  %div.menu-item
-    =link_to cat.name, {:controller=>"/categories", :action=>:show, :id=>cat.adress}
+  %div.menu-item{:class=>('menu-select' if params["cat"] == cat.adress)}
+    =link_to cat.name, {:controller=>"/categories", :action=>:show, :cat=>cat.adress}
     %div.submenu
       - cat.subcategories.each do |sub|
         %div.submenu_item

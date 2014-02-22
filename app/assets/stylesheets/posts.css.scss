@@ -1,7 +1,10 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-@import "jquery/jquery.Jcrop.min";
+/*
+ *=require jquery/jquery.ui.datepicker.css
+ *=require jquery/jquery.ui.theme.css
+ *=require jquery/jquery-ui.css
+ *=require picts
+ */
+ 
 #edit_post_click {text-align:center; float:right; width:30px; position:fixed; margin-left:770px; 
 	span {display:inline-block; border:1px solid #505050; padding:3px; background-color:#61CB71; color:#505050; cursor:pointer; width:22px;}
 	span:hover{color:black; background-color:#62B76F;}
@@ -26,10 +29,20 @@
 }
 
 // Form 
-#new_post {
+#new_post, .edit_post {
   .form-input { display:block; width:100%; text-align:center;
     label {text-align:center; display:block; margin-top:15px; }
     input [type="text"] {width:300px; }
     textarea {width:700px; height:80px;}
+  }
+}
+
+// View
+#post{
+  #post_title{text-align:center; font-size:32px; padding:20px 0px;}
+  #post_image{text-align:center;}
+  table {width:400px; margin:0px auto;
+    .label {text-align:right;}
+    .value {padding-left:10px;}
   }
 }
